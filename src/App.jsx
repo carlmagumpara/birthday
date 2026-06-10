@@ -238,7 +238,7 @@ export default function App() {
           )}
 
           <div className="heroCopy" role="presentation">
-            <h1 className="title">Happy Birthday!, I love you</h1>
+            <h1 className="title">Happy Birthday Love!, I love you</h1>
           </div>
         </div>
       </header>
