@@ -86,7 +86,7 @@
   top: 50%;
   z-index: 3;
 
-  width: min(105px, 18vw);
+  width: min(230px, 34vw);
   aspect-ratio: 3 / 4;
 
   padding: 6px;
@@ -107,14 +107,14 @@
 }
 
 .photoCardOne {
-  right: clamp(14px, 3.5vw, 44px);
-  transform: translate3d(0, -50%, 0) rotate(-7deg);
+  left: clamp(14px, 3.5vw, 44px);
+  right: auto;
+  transform: translate3d(0, -50%, 0) rotate(-6deg);
 }
 
+/* Removed second photo card */
 .photoCardTwo {
-  left: clamp(14px, 3.5vw, 44px);
-  transform: translate3d(0, -50%, 0) rotate(7deg);
-  animation-delay: -1.2s;
+  display: none;
 }
 
 .photoCard img {
@@ -172,7 +172,7 @@
   .photoCard {
     top: auto;
     bottom: 110px;
-    width: min(104px, 36vw);
+    width: min(170px, 60vw);
   }
 
   .photoCardOne {

@@ -231,10 +231,6 @@ export default function App() {
             <img src="/photo-1.jpg" alt="" loading="eager" />
           </figure>
 
-          <figure className="photoCard photoCardTwo" aria-hidden="true">
-            <img src="/photo-2.jpg" alt="" loading="eager" />
-          </figure>
-
           {!playing && (
             <button className="startButton" type="button" onClick={onStart}>
               Start
@@ -242,7 +238,7 @@ export default function App() {
           )}
 
           <div className="heroCopy" role="presentation">
-            <h1 className="title">Happy Birthday Jana and Kim</h1>
+            <h1 className="title">Happy Birthday!, I love you</h1>
           </div>
         </div>
       </header>
