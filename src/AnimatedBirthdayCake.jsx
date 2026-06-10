@@ -574,11 +574,12 @@ function Scene() {
   )
 }
 
-export default function AnimatedBirthdayCake() {
+export default function AnimatedBirthdayCake({ playing = true }) {
   return (
     <div className="cakeRoot" aria-label="Animated Birthday Cake">
       <Canvas
         className="cakeCanvas"
+        frameloop={playing ? 'always' : 'demand'}
         shadows
         dpr={[1, 2]}
         camera={{ position: [4.6, 2.6, 4.6], fov: 42, near: 0.1, far: 50 }}
@@ -586,7 +587,6 @@ export default function AnimatedBirthdayCake() {
       >
         <Scene />
       </Canvas>
-
     </div>
   )
 }

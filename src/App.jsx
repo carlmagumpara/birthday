@@ -1,15 +1,21 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import AnimatedBirthdayCake from './AnimatedBirthdayCake.jsx'
 import './App.css'
 
 export default function App() {
   const fireworksCanvasRef = useRef(null)
+  const audioRef = useRef(null)
+
+  const [playing, setPlaying] = useState(false)
+  const [playId, setPlayId] = useState(0)
 
   useEffect(() => {
     document.title = 'Animated Birthday Cake'
   }, [])
 
   useEffect(() => {
+    if (!playing) return
+
     const canvas = fireworksCanvasRef.current
     if (!canvas) return
 
@@ -177,12 +183,33 @@ export default function App() {
     }
   }, [])
 
+  const onStart = async () => {
+    setPlayId((n) => n + 1)
+    setPlaying(true)
+
+    const a = audioRef.current
+    if (!a) return
+
+    try {
+      a.currentTime = 0
+      await a.play()
+    } catch {
+      // Ignore autoplay restrictions errors; user gesture should allow playback.
+    }
+  }
+
   return (
-    <main className="page">
+    <main className={`page ${playing ? 'isPlaying' : 'isPaused'}`}>
       <canvas
         className="fireworksCanvas"
         ref={fireworksCanvasRef}
         aria-hidden="true"
+      />
+
+      <audio
+        ref={audioRef}
+        src="/twisterium-happy-birthday-482411.mp3"
+        preload="auto"
       />
 
       <header className="heroSection">
@@ -197,7 +224,7 @@ export default function App() {
           </div>
 
           <div className="cakeStage" aria-label="Animated Birthday Cake stage">
-            <AnimatedBirthdayCake />
+            <AnimatedBirthdayCake key={playId} playing={playing} />
           </div>
 
           <figure className="photoCard photoCardOne" aria-hidden="true">
@@ -207,6 +234,12 @@ export default function App() {
           <figure className="photoCard photoCardTwo" aria-hidden="true">
             <img src="/photo-2.jpg" alt="" loading="eager" />
           </figure>
+
+          {!playing && (
+            <button className="startButton" type="button" onClick={onStart}>
+              Start
+            </button>
+          )}
 
           <div className="heroCopy" role="presentation">
             <h1 className="title">Happy Birthday Jana and Kim</h1>
