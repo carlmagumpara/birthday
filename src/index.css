@@ -1,0 +1,59 @@
+:root {
+  --text: rgba(18, 10, 26, 0.7);
+  --text-h: rgba(18, 10, 26, 0.92);
+  --bg: #ffffff;
+  --border: rgba(18, 10, 26, 0.08);
+  --code-bg: rgba(255, 255, 255, 0.7);
+
+  --sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial,
+    sans-serif;
+  --heading: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial,
+    sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  background:
+    radial-gradient(1200px 700px at 20% 0%, rgba(255, 230, 249, 0.55), transparent 62%),
+    radial-gradient(1200px 700px at 80% 0%, rgba(214, 249, 255, 0.55), transparent 58%),
+    linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(250, 252, 255, 1) 100%);
+}
+
+#root {
+  min-height: 100svh;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--heading);
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
